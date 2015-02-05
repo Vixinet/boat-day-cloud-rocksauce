@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Boat Day": {
+            "applicationId": "n847Wlp5wbJxzU5sakhXd6ojpReDGDRKy5HhhmWN", 
+            "masterKey": "sci7iAeIXvHffa8hmUi7cbVWz0ZL0dll3eSAeBzT"
+        }, 
+        "_default": {
+            "link": "Boat Day"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.0"
+    }
+}
