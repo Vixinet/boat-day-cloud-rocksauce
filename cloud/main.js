@@ -1,30 +1,27 @@
-Parse.Cloud.define("simulateGuestPrice", function(request, response) {  
+Parse.Cloud.define("grantUserToAdmin", function(request, response) {  
   
+  var query = new Parse.Query(Parse.Role); 
+  query.equalTo("name", "admin"); 
+  query.find({ 
+    success: function(roles) {
+      roles.forEach(function(role) {
 
-  // var query = new Parse.Query(Parse.Role); 
-  // query.equalTo("name", "admin"); 
-  // query.find({ 
-  //   success: function(roles) {
-  //     roles.forEach(function(role) {
-
-  //       var q = new Parse.Query(Parse.User);
-  //       q.equalTo("username", "daniel");  // find all the users
-  //       q.find({
-  //         success: function(users) {
-  //           // response.success(users);
-  //           users.forEach(function(user) {
-  //             Parse.Cloud.useMasterKey();
-  //             role.getUsers().add(users);
-  //             role.save();
-  //             response.success(user);
-  //           });
-  //         }
-  //       });
-
-  //     });
-  //     // response.success("hey 1");
-  //   }
-  // });
+        var q = new Parse.Query(Parse.User);
+        q.equalTo("username", request.params.username);
+        q.find({
+          success: function(users) {
+            // response.success(users);
+            users.forEach(function(user) {
+              Parse.Cloud.useMasterKey();
+              role.getUsers().add(users);
+              role.save();
+              response.success(user);
+            });
+          }
+        });
+      });
+    }
+  });
 });
 
 // BACKGROUND JOBS
